@@ -32,8 +32,8 @@ body:
       label: ">>Version<<"
       description: What version of our software are you running?
       options:
-        - "1.0.2 (Default)"
-        - "1.0.3 (Edge)"
+        - 1.0.2
+        - 1.0.3
     validations:
       required: true
   - type: dropdown
@@ -46,12 +46,12 @@ body:
         - Chrome
         - Safari
         - Microsoft Edge
-  # - type: textarea
-  #   id: logs
-  #   attributes:
-  #     label: ">>Relevant log output<<"
-  #     description: Please copy and paste any relevant log output. Isso será formatado automaticamente em código. Portanto, não há necessidade de barra inversa.
-  #     render: shell
+  - type: textarea
+    id: logs
+    attributes:
+      label: ">>Relevant log output<<"
+      description: Please copy and paste any relevant log output. Isso será formatado automaticamente em código. Portanto, não há necessidade de barra inversa.
+      render: shell
   - type: checkboxes
     id: terms
     attributes:
