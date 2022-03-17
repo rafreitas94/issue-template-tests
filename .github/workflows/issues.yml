@@ -23,7 +23,7 @@ jobs:
 
       - name: use output
         run: |
-          echo $json_var | jq '.[].Version'
+          echo $json_var | jq '.[].Relevant_log_output'
         env:
           json_var: ${{ steps.set.outputs.json_var}}
 
