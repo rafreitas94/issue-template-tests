@@ -37,7 +37,7 @@ jobs:
     needs: parse
     steps:
     - run: |
-        echo ${{needs.parse.outputs.output1.Contact_Details}}
+        echo ${{needs.parse.outputs.output1.[].Contact_Details}}
 
 
     # steps:
