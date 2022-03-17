@@ -23,7 +23,7 @@ jobs:
 
       - name: use output
         run: |
-          echo $json_var | jq '.[].What_happened?'
+          echo $json_var | jq '.[].Whathappened?'
         env:
           json_var: ${{ steps.set.outputs.json_var}}
 
