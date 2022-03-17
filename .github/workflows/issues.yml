@@ -23,9 +23,30 @@ jobs:
 
       - name: use output
         run: |
-          echo $json_var | jq '.[].Version'
+          echo $json_var | jq '.[].What happened?'
         env:
           json_var: ${{ steps.set.outputs.json_var}}
+
+    # steps:
+    #   - name: Run Issue form parser
+    #     id: parse
+    #     uses: peter-murray/issue-forms-body-parser@v2.0.0
+    #     with:
+    #       issue_id: 18
+    #       separator: '###'
+    #       label_marker_start: '>>'
+    #       label_marker_end: '<<'
+
+    #   - name: set output
+    #     id: set
+    #     run: |
+    #       echo ::set-output name=json_var::'[${{steps.parse.outputs.payload}}]'
+
+    #   - name: use output
+    #     run: |
+    #       echo $json_var | jq '.[].Version'
+    #     env:
+    #       json_var: ${{ steps.set.outputs.json_var}}
 
       # - name: Show parsed data JSON
       #   run: |
