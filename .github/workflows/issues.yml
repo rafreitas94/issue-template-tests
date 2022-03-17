@@ -23,7 +23,7 @@ jobs:
 
       - name: use output
         run: |
-          echo $json_var | jq '.[].Relevant_log_output'
+          echo $json_var | jq '.[].What_browsers_are_you_seeing_the_problem_on?'
         env:
           json_var: ${{ steps.set.outputs.json_var}}
 
