@@ -19,7 +19,7 @@ jobs:
       - name: set output
         id: set
         run: |
-          echo ::set-output name=json_var::'[steps.parse.outputs.payload]'
+          echo ::set-output name=json_var::'[${{steps.parse.outputs.payload}}]'
 
       - name: use output
         run: |
