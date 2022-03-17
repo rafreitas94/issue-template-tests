@@ -5,7 +5,8 @@ on: push
 jobs:
   parse:
     runs-on: ubuntu-latest
-
+    outputs:
+      output1: ${{ steps.set.outputs.json_var}}
     steps:
       - name: Run Issue form parser
         id: parse
@@ -30,6 +31,13 @@ jobs:
           echo $json_var | jq '.[].Relevant_log_output'
         env:
           json_var: ${{ steps.set.outputs.json_var}}
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: parse
+    steps:
+    - run: echo ${{needs.parse.outputs.output1}}
+
 
     # steps:
     #   - name: Run Issue form parser
