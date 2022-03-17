@@ -1,8 +1,6 @@
 name: Parse form issue to Json
 
-on:
-  issues:
-    types: [opened, reopened]
+on: push
 
 jobs:
   parse:
@@ -18,16 +16,27 @@ jobs:
           label_marker_start: '>>'
           label_marker_end: '<<'
 
-      - name: Show parsed data JSON
+      - name: set output
+        id: set
         run: |
-          echo "${{ steps.parse.outputs.payload.Version }}"
+          echo ::set-output name=json_var::'[steps.parse.outputs.payload]'
 
-  auto-closing-issue:
-    runs-on: ubuntu-latest
-    needs: [parse]
-    steps:
-      - name: Close Issue
-        uses: peter-evans/close-issue@v1
-        with:
-          issue-number: ${{ github.event.issue.number }}
-          comment: Auto-closing issue
+      - name: use output
+        run: |
+          echo $json_var | jq '.[].Version'
+        env:
+          json_var: ${{ steps.set.outputs.json_var}}
+
+      # - name: Show parsed data JSON
+      #   run: |
+      #     echo "${{ steps.parse.outputs.payload }}"
+
+  # auto-closing-issue:
+  #   runs-on: ubuntu-latest
+  #   needs: [parse]
+  #   steps:
+  #     - name: Close Issue
+  #       uses: peter-evans/close-issue@v1
+  #       with:
+  #         issue-number: ${{ github.event.issue.number }}
+  #         comment: Auto-closing issue
