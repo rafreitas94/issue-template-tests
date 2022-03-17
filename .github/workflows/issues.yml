@@ -20,7 +20,7 @@ jobs:
 
       - name: Show parsed data JSON
         run: |
-          echo "${{ steps.parse.outputs.payload }}"
+          echo "${{ steps.parse.outputs.payload.Version }}"
 
   auto-closing-issue:
     runs-on: ubuntu-latest
