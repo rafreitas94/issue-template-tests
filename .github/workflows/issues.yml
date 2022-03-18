@@ -7,6 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       output1: ${{ steps.set.outputs.json_var}}
+      Contact_Details: $json_var | jq '.[].Contact_Details'
     steps:
       - name: Run Issue form parser
         id: parse
@@ -37,7 +38,7 @@ jobs:
     needs: parse
     steps:
     - run: |
-        echo ${{needs.parse.outputs.output1.[].Contact_Details}}
+        echo ${{needs.parse.outputs.Contact_Details}}
 
 
     # steps:
