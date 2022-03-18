@@ -25,7 +25,7 @@ jobs:
 
       - name: set contact_details
         id: contact_details
-        run: echo ::set-output name=contact::'${{ steps.set.outputs.json_var.[].Contact_Details}}'
+        run: echo ::set-output name=contact::'${{ steps.set.outputs.json_var.Contact_Details}}'
 
       - name: use output
         run: |
