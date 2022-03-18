@@ -23,6 +23,7 @@ jobs:
         run: |
           echo ::set-output name=json_var::'[${{steps.parse.outputs.payload}}]'
 
+      - name: set contact_details
         id: contact_details
         run: echo $json_var | jq '.[].Contact_Details'
 
