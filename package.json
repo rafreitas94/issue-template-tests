@@ -1,0 +1,22 @@
+{
+  "name": "issue-template-tests",
+  "version": "1.0.0",
+  "description": "node-tar-test",
+  "main": "/src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafreitas94/issue-template-tests.git"
+  },
+  "author": "Raphael",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafreitas94/issue-template-tests/issues"
+  },
+  "homepage": "https://github.com/rafreitas94/issue-template-tests#readme",
+  "devDependencies": {
+    "typescript": "^4.6.2"
+  }
+}
