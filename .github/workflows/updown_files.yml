@@ -24,7 +24,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: issue-template
-          path: issue-template-tests-1.0.0.tgz
+          path: /issue-template-tests-1.0.0.tgz
 
   job_2:
     name: Multiply by 9
