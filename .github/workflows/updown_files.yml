@@ -3,6 +3,18 @@ name: Share data between jobs
 on: [push]
 
 jobs:
+  job_0:
+    name: Setup Node
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - run: npm install
+      - run: npm build
+      - run: npm pack
+
   job_1:
     name: Add 3 and 7
     runs-on: ubuntu-latest
