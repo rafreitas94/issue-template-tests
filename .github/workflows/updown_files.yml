@@ -18,7 +18,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: issue-template
-          path: issue-template-tests-1.0.0.zip
+          path: issue-template-tests-1.0.0.tgz
 
   # job_1:
   #   name: Add 3 and 7
