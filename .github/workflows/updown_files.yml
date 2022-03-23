@@ -17,16 +17,14 @@ jobs:
 
   job_1:
     name: Add 3 and 7
+    needs: job_0
     runs-on: ubuntu-latest
     steps:
-      - shell: bash
-        run: |
-          expr 3 + 7 > math-homework.txt
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
-          name: homework
-          path: math-homework.txt
+          name: issue-template
+          path: issue-template-tests-1.0.0.tgz
 
   job_2:
     name: Multiply by 9
