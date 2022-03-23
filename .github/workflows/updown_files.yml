@@ -14,48 +14,53 @@ jobs:
       - run: npm install
       - run: npm build
       - run: npm pack
-
-  job_1:
-    name: Add 3 and 7
-    needs: job_0
-    runs-on: ubuntu-latest
-    steps:
       - name: Upload math result for job 1
         uses: actions/upload-artifact@v3
         with:
           name: issue-template
-          path: ./issue-template-tests-1.0.0.tgz
+          path: issue-template-tests-1.0.0.tgz
 
-  job_2:
-    name: Multiply by 9
-    needs: job_1
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download math result for job 1
-        uses: actions/download-artifact@v3
-        with:
-          name: homework
-      - shell: bash
-        run: |
-          value=`cat math-homework.txt`
-          expr $value \* 9 > math-homework.txt
-      - name: Upload math result for job 2
-        uses: actions/upload-artifact@v3
-        with:
-          name: homework
-          path: math-homework.txt
+  # job_1:
+  #   name: Add 3 and 7
+  #   needs: job_0
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Upload math result for job 1
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: issue-template
+  #         path: ./issue-template-tests-1.0.0.tgz
 
-  job_3:
-    name: Display results
-    needs: job_2
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download math result for job 2
-        uses: actions/download-artifact@v3
-        with:
-          name: homework
-      - name: Print the final result
-        shell: bash
-        run: |
-          value=`cat math-homework.txt`
-          echo The result is $value
+  # job_2:
+  #   name: Multiply by 9
+  #   needs: job_1
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Download math result for job 1
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: homework
+  #     - shell: bash
+  #       run: |
+  #         value=`cat math-homework.txt`
+  #         expr $value \* 9 > math-homework.txt
+  #     - name: Upload math result for job 2
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: homework
+  #         path: math-homework.txt
+
+  # job_3:
+  #   name: Display results
+  #   needs: job_2
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Download math result for job 2
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: homework
+  #     - name: Print the final result
+  #       shell: bash
+  #       run: |
+  #         value=`cat math-homework.txt`
+  #         echo The result is $value
