@@ -1,6 +1,8 @@
 name: Parse form issue to Json
 
-on: push
+on:
+  issues:
+    types: [opened, reopened]
 
 jobs:
   parse:
