@@ -3,8 +3,7 @@ name: Parse form issue to Json
 on:
   issues:
     types: [opened, reopened]
-    name: 
-      - '*BUG*'
+    name: ['*BUG*']
 
 jobs:
   parse:
