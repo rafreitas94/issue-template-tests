@@ -3,7 +3,6 @@ name: Parse form issue to Json
 on:
   issues:
     types: [opened, reopened]
-    name: ['*BUG*']
 
 jobs:
   run_if_label_matches:
