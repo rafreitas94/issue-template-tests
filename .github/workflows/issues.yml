@@ -6,8 +6,15 @@ on:
     name: ['*BUG*']
 
 jobs:
+  run_if_label_matches:
+    if: github.event.label.name == 'bug'
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'The label was bug'
+
   parse:
     runs-on: ubuntu-latest
+    needs: [run_if_label_matches]
     outputs:
       output1: ${{ steps.set.outputs.json_var}}
       Contact_Details: ${{ steps.contact_details.outputs.contact }}
