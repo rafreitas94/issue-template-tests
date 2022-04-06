@@ -6,10 +6,10 @@ on:
 
 jobs:
   run_if_label_matches:
-    if: github.event.label.name == 'bug'
+    # if: github.event.label.name == 'bug'
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'The label was bug'
+      - run: echo ${{ github.event.label.name }}
 
   parse:
     runs-on: ubuntu-latest
