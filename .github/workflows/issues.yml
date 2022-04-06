@@ -1,8 +1,8 @@
 name: Parse form issue to Json
 
 on:
-  label:
-    types: [bug]
+  issues:
+    types: [Bug:]
 
 jobs:
   parse:
