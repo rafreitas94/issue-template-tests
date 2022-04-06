@@ -2,7 +2,9 @@ name: Parse form issue to Json
 
 on:
   issues:
-    types: [Bug:]
+    types: [opened, reopened]
+    title: 
+      - '*BUG*'
 
 jobs:
   parse:
